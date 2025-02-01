@@ -1,0 +1,48 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <h1>Hello World</h1>
+    <a href="{% url 'add-lost-item' %}">Add Lost Item</a>
+
+    <a href="{% url 'lost-item' %}">Lost Item List</a>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in lostitem %}
+            <tr>
+                <td><a href="{% url 'lost-item-view' item.pk %}">{{ item.item }}</a></td>
+                <td>{{ item.status }}</td>
+                <td>
+                    <a href="{% url 'update-lost-item' item.pk %}">Update</a> |
+                    <a href="{% url 'delete-lost-item' item.pk %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+
+
+
+
+
+    {% if user.is_authenticated %}
+        {% if user.is_superuser %}
+        <!-- Super User Page -->
+    <p>Welcome, Superuser {{ user.username }}!</p>
+    <a href="{% url 'admin_panel' %}">Admin panel</a>
+        {% else %}
+        <!-- User Page -->
+    <p>Welcome, {{ user.username }}!</p>
+    <a href="{% url 'appoint_add' %}">Make an appointment</a>
+        {% endif %}
+    {% endif %}

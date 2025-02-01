@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+{% load static %}
+    {% block content %}
+        <div class="container">
+        <h1>Home</h1>
+            {% if user.is_authenticated %}
+        {% if user.is_superuser %}
+            <!-- Super User Page -->
+            <p>Welcome, Superuser {{ user.username }}!</p>
+        {% else %}
+            <!-- Regular User Page -->
+            <p>Welcome, {{ user.username }}!</p>
+        {% endif %}
+
+        <!-- Logout button (moved outside of the conditional blocks) -->
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type='submit'>Log out</button>
+        </form>
+
+    {% else %}
+        <br>
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">Log in</a>
+        <a href="{% url 'signup' %}">Signup</a>
+    {% endif %}
+        </div>
+    {% endblock %}
+
+<div class="container">

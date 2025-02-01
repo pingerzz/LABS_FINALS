@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Item Detailed Description</h1>
+
+<p>{{ lostitem.description }}</p>
+
+<!-- Displaying the image -->
+{% if lostitem.image %}
+    <div class="text-center my-4">
+        <img src="{{ lostitem.image.url }}" alt="Item Image" class="img-fluid">
+    </div>
+{% else %}
+    <p>No image available for this item.</p>
+{% endif %}
+
+<!-- Back button -->
+<div class="text-center my-3">
+    <a href="{% url 'lost-item' %}" class="btn btn-secondary">Back to Lost Items</a>
+</div>
+
+{% endblock %}
+

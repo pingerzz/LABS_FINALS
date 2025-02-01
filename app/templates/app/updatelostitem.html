@@ -1,0 +1,10 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<form action="{% url 'update-lost-item' object.pk %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Confirm</button>
+</form>
+{% endblock %}

@@ -1,0 +1,51 @@
+header nav {
+    background-color: var(--dark); /* Dark background for contrast */
+    display: flex;
+    justify-content: center; /* Center the navbar items */
+    align-items: center;
+    padding: 10px 20px; /* Add some spacing */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+header nav a {
+    text-decoration: none; /* Remove underline */
+    color: var(--light); /* Light text color */
+    font-family: comics; /* Keep your font styling */
+    font-size: 18px; /* Adjust font size if needed */
+    margin: 0 15px; /* Add spacing between links */
+    padding: 10px 15px; /* Add padding for a button-like effect */
+    background-color: var(--colored); /* Use a background color for links */
+    border-radius: 5px; /* Add rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover animation */
+}
+
+header nav a:hover {
+    background-color: var(--light); /* Lighter hover background */
+    color: var(--dark); /* Dark text color on hover */
+}
+
+
+.btn {
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+}

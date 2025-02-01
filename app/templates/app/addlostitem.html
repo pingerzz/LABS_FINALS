@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1 class="text-center my-4">Add New Lost Item</h1>
+
+<div class="container">
+    <form action="{% url 'add-lost-item' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- Displaying form fields with Bootstrap styling -->
+        <div class="mb-3">
+            {{ form.as_p }}
+        </div>
+
+        <!-- Submit button styled with Bootstrap -->
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Confirm</button>
+        </div>
+    </form>
+
+    <!-- Back button -->
+    <div class="text-center my-3">
+        <a href="{% url 'lost-item' %}" class="btn btn-secondary">Back</a>
+    </div>
+</div>
+
+{% endblock %}
